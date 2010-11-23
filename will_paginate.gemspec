@@ -4,9 +4,9 @@ require File.expand_path('../lib/will_paginate/version', __FILE__)
 Gem::Specification.new do |s|
   s.name    = 'will_paginate'
   s.version = WillPaginate::VERSION::STRING
-  s.date    = '2010-02-05'
+  s.date    = '2010-11-23'
   
-  s.summary = "Adaptive pagination plugin for web frameworks and other applications"
+  s.summary = "Adaptive pagination plugin for web frameworks and other applications (temporary fork)"
   s.description = "The will_paginate library provides a simple, yet powerful and extensible API for pagination and rendering of page links in web application templates."
   
   s.authors  = ['Mislav Marohnić']
