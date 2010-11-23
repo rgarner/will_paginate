@@ -25,6 +25,7 @@ module WillPaginate
       # * <tt>:page_links</tt> -- when false, only previous/next links are rendered (default: true)
       # * <tt>:container</tt> -- toggles rendering of the DIV container for pagination links, set to
       #   false only when you are rendering your own pagination markup (default: true)
+      # * <tt>:show_always</tt> -- if true, show even if total pages is 0 or 1 (default: false)
       # * <tt>:id</tt> -- HTML ID for the container (default: nil). Pass +true+ to have the ID
       #   automatically generated from the class name of objects in collection: for example, paginating
       #   ArticleComment models would yield an ID of "article_comments_pagination".
@@ -39,10 +40,10 @@ module WillPaginate
       #   <div class="pagination" id="wp_posts"> ... </div>
       #
       def will_paginate(collection, options = {})
-        # early exit if there is nothing to render
-        return nil unless collection.total_pages > 1
-        
         options = WillPaginate::ViewHelpers.pagination_options.merge(options)
+        
+        # early exit if there is nothing to render
+        return nil unless options[:show_always] || (collection.total_pages > 1)
         
         if options[:prev_label]
           WillPaginate::Deprecation::warn(":prev_label view parameter is now :previous_label; the old name has been deprecated.")

@@ -36,7 +36,8 @@ module WillPaginate
       :params         => nil,
       :renderer       => 'WillPaginate::ViewHelpers::LinkRenderer',
       :page_links     => true,
-      :container      => true
+      :container      => true,
+      :show_always    => false
     }
   end
 end
